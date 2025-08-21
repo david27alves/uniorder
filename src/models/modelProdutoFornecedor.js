@@ -21,11 +21,11 @@ const ProdutoFornecedor = sequelize.define('ProdutoFornecedor', {
       allowNull: false,
     },
     custotabela: {
-      type: DataTypes.DECIMAL(13, 4), // numeric(13,4)
+      type: DataTypes.DECIMAL(13, 4),
       allowNull: false,
     },
     codigoexterno: {
-      type: DataTypes.STRING(50), // varchar(50)
+      type: DataTypes.STRING(50),
       allowNull: false,
     },
     qtdembalagem: {
@@ -37,11 +37,11 @@ const ProdutoFornecedor = sequelize.define('ProdutoFornecedor', {
       allowNull: false,
     },
     dataalteracao: {
-      type: DataTypes.DATEONLY, // date
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     desconto: {
-      type: DataTypes.DECIMAL(11, 2), // numeric(11,2)
+      type: DataTypes.DECIMAL(11, 2),
       allowNull: false,
     },
     tipoipi: {
@@ -49,7 +49,7 @@ const ProdutoFornecedor = sequelize.define('ProdutoFornecedor', {
       allowNull: false,
     },
     ipi: {
-      type: DataTypes.DECIMAL(11, 2), // numeric(11,2)
+      type: DataTypes.DECIMAL(11, 2),
       allowNull: false,
     },
     tipobonificacao: {
@@ -57,7 +57,7 @@ const ProdutoFornecedor = sequelize.define('ProdutoFornecedor', {
       allowNull: false,
     },
     bonificacao: {
-      type: DataTypes.DECIMAL(11, 2), // numeric(11,2)
+      type: DataTypes.DECIMAL(11, 2),
       allowNull: false,
     },
     tipoverba: {
@@ -65,11 +65,11 @@ const ProdutoFornecedor = sequelize.define('ProdutoFornecedor', {
       allowNull: false,
     },
     verba: {
-      type: DataTypes.DECIMAL(12, 3), // numeric(12,3)
+      type: DataTypes.DECIMAL(12, 3),
       allowNull: false,
     },
     custoinicial: {
-      type: DataTypes.DECIMAL(13, 4), // numeric(13,4)
+      type: DataTypes.DECIMAL(13, 4),
       allowNull: false,
     },
     tipodesconto: {
@@ -77,7 +77,7 @@ const ProdutoFornecedor = sequelize.define('ProdutoFornecedor', {
       allowNull: false,
     },
     pesoembalagem: {
-      type: DataTypes.DECIMAL(12, 3), // numeric(12,3)
+      type: DataTypes.DECIMAL(12, 3),
       allowNull: false,
     },
     id_tipopiscofins: {
@@ -87,32 +87,32 @@ const ProdutoFornecedor = sequelize.define('ProdutoFornecedor', {
     },
     csosn: {
       type: DataTypes.INTEGER,
-      allowNull: true, // NULL in SQL
+      allowNull: true,
     },
     fatorembalagem: {
-      type: DataTypes.DECIMAL(11, 2), // numeric(11,2)
+      type: DataTypes.DECIMAL(11, 2),
       allowNull: false,
     },
     id_aliquotacredito: {
       type: DataTypes.INTEGER,
-      allowNull: true, // NULL in SQL
+      allowNull: true,
     },
     excecao: {
       type: DataTypes.INTEGER,
-      allowNull: true, // NULL in SQL
+      allowNull: true,
     },
     substituicaoestadual: {
       type: DataTypes.INTEGER,
-      allowNull: true, // NULL in SQL
+      allowNull: true,
     },
     valorsubstituicaoestadual: {
-      type: DataTypes.DECIMAL(11, 2), // numeric(11,2)
-      allowNull: true, // NULL in SQL
+      type: DataTypes.DECIMAL(11, 2),
+      allowNull: true,
     },
   }, {
-    tableName: 'produtofornecedor', // Garante que o nome da tabela no DB seja 'produtofornecedor'
-    timestamps: false, // Desabilita createdAt e updatedAt
-    // Define a restrição UNIQUE para a combinação de colunas
+    tableName: 'produtofornecedor',
+    timestamps: false,
+
     indexes: [
       {
         unique: true,

@@ -1,6 +1,3 @@
-// import fs from 'fs';
-// import csv from 'csv-parser';
-// import { Readable } from 'stream'; // Necessário para simular stream para csv-parser de string
 
 export const addProductIdToOrders = (ordersArray, productsArray) => {
  
@@ -25,36 +22,6 @@ export const addProductIdToOrders = (ordersArray, productsArray) => {
 
   return ordersArray;
 }
-
-
-
-// export const convertFileToJson = async (filePath) => {
-//     return new Promise((resolve, reject) => {
-//         const results = [];
-//         const fileContent = fs.readFileSync(filePath, 'utf8'); // Lê o arquivo de forma síncrona para simplificar
-
-//         // Cria uma stream legível a partir da string para o csv-parser
-//         const s = new Readable();
-//         s.push(fileContent);
-//         s.push(null); // Indica o fim da stream
-
-//         // Detecta o delimitador com base na extensão ou conteúdo (aqui, assumimos ';')
-//         // Para um sistema mais robusto, você pode tentar detectar o delimitador
-//         // ou ter uma configuração por tipo de arquivo.
-//         // Com base no seu problema anterior, assumimos ';'
-//         const options = { separator: ';' };
-
-//         s.pipe(csv(options))
-//             .on('data', (data) => results.push(data))
-//             .on('end', () => {
-//                 resolve(results);
-//             })
-//             .on('error', (err) => {
-//                 reject(err);
-//             });
-//     });
-// }
-
 
 export const convertTextToJson = (arquivoProdutos) => {
   const linhas = arquivoProdutos.trim().split('\n');
@@ -119,13 +86,3 @@ export const convertTextToJson = (arquivoProdutos) => {
 
   return resultadoFinal;
 }
-
-// // Exemplo de uso:
-// const entrada = `NUMERO_PEDIDO;LOTE;EMPRESA;COD_CLIENTE;CLIENTE;COD_PRODUTO;DESCRICAO;EMBALAGEM;QTDPEDIDA;PESOTOTAL;PRC_VENDA_UNIT;TOTAL;STATUS;DTAINCLUSAO;VENCIMENTO;FORMABASTEC;CATEGORIA
-// 4100806;200760;002-ITAITING;243;S NOVA OPCAO;9992;SAL SOSAL PARRILLA 500G DEFUMADO;CX 8;1;4;11,64;93,12;LIBERADO;12/05/2025;12/06/2025;SELEÇÃO INVERSA;MERC SALGADA 
-// 4100806;200760;002-ITAITING;243;S NOVA OPCAO;9993;SAL SOSAL PARRILLA 500G ERVAS FINAS;CX 8;1;4;11,64;93,12;LIBERADO;12/05/2025;12/06/2025;SELEÇÃO INVERSA;MERC SALGADA 
-// 4100807;200761;002-ITAITING;244;OUTRO CLIENTE;1000;PRODUTO A;UN 1;2;10;5,00;10,00;PENDENTE;13/05/2025;13/06/2025;SELEÇÃO NORMAL;BEBIDA
-// 4100807;200761;002-ITAITING;244;OUTRO CLIENTE;1001;PRODUTO B;UN 1;3;15;7,50;22,50;PENDENTE;13/05/2025;13/06/2025;SELEÇÃO NORMAL;BEBIDA`;
-
-// const saida = agruparProdutosPorPedido(entrada);
-// console.log(JSON.stringify(saida, null, 2));
