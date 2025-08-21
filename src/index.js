@@ -1,10 +1,11 @@
+import 'dotenv/config'
 import chokidar from 'chokidar';
 import fs from 'fs';
 import path from 'path';
 import { addProductIdToOrders, convertTextToJson } from './utils/utils.js';
 import { createOrder, getProductSupplier } from './controllers/orders.js';
 
-const INPUT_FOLDER = 'c:\\input_files'; 
+const INPUT_FOLDER = process.env.FOLDER; 
 const ALLOWED_EXTENSIONS = ['.csv', '.txt'];
 
 async function startFileMonitor() {

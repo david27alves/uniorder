@@ -1,9 +1,12 @@
+import 'dotenv/config'
 import { Sequelize } from 'sequelize'
 
+
 const sequelize = new Sequelize({
-    database: 'opcao',
-    username: 'postgres',
-    password: 'postgres',
+    host: process.env.PG_HOST,
+    database: process.env.PG_DATABASE,
+    username: process.env.PG_USER,
+    password: process.env.PG_PASS,
     dialect: 'postgres',
     logging: false
 })
