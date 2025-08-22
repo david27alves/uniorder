@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import sequelize from "../services/db.js"
 import Pedido from "../models/modelPedido.js"
 import PedidoItem from "../models/modelPedidoItem.js"
@@ -32,7 +33,7 @@ export const createOrder = async (pedidos) => {
             const pedidoCreate = await Pedido.create(
                 {
                     idLoja: 1,
-                    idFornecedor: 1382,
+                    idFornecedor: parseInt(process.env.ID_SUPPLIER),
                     idTipoFretePedido: 0,
                     idTipopedido: 0,
                     dataCompra: pedido.DTAINCLUSAO.split('/').reverse().join('-'),
@@ -40,7 +41,6 @@ export const createOrder = async (pedidos) => {
                     valorTotal: pedido.TOTAL_PEDIDO.replace(',', '.'),
                     idSituacaoPedido: 0,
                     observacao: `NUM_PEDIDO: ${pedido.NUMERO_PEDIDO} \nLOTE: ${pedido.LOTE}\nIMPORTAÇÃO VIA INTEGRAÇÃO`,
-                    // observacao: 'TESTE DE IMPORTACAO',
                     desconto: '0.00',
                     valorDesconto: '0.00',
                     idTipoAtendidoPedido: 0

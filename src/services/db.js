@@ -1,13 +1,12 @@
 import 'dotenv/config'
 import { Sequelize } from 'sequelize'
 
-
 const sequelize = new Sequelize({
-    host: process.env.PG_HOST,
-    database: process.env.PG_DATABASE,
-    username: process.env.PG_USER,
-    password: process.env.PG_PASS,
-    dialect: 'postgres',
+    host: process.env.DB_HOST,
+    database: process.env.DB_DATABASE,
+    username: process.env.DB_USER ? process.env.DB_USER : 'postgres',
+    password: process.env.DB_PASS ? process.env.DB_PASS : 'postgres',
+    dialect: process.env.DB_DIALECT,
     logging: false
 })
 

@@ -19,6 +19,10 @@ async function startFileMonitor() {
     const watcher = chokidar.watch(INPUT_FOLDER, {
         ignored: /(^|[\/\\])\../, 
         persistent: true,
+        awaitWriteFinish: {
+            stabilityThreshold: 2000, // Tempo em milissegundos para esperar
+            pollInterval: 100 // Intervalo de tempo para checar se o arquivo foi finalizado
+        }
     });
 
     watcher.on('add', async (filePath) => {
