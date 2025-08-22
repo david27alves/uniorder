@@ -4,9 +4,17 @@ import fs from 'fs';
 import path from 'path';
 import { addProductIdToOrders, convertTextToJson } from './utils/utils.js';
 import { createOrder, getProductSupplier } from './controllers/orders.js';
+import sequelize from './services/db.js';
 
 const INPUT_FOLDER = process.env.FOLDER; 
 const ALLOWED_EXTENSIONS = ['.csv', '.txt'];
+
+try {
+    await sequelize.authenticate();
+    console.log("Conexão estabelecida com o banco de dados!")
+} catch(e) {
+    console.error("Falha ao conectar no banco de dados!")
+}
 
 async function startFileMonitor() {
     console.log(`Iniciando monitoramento da pasta: ${INPUT_FOLDER}`);
