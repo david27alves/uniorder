@@ -32,7 +32,7 @@ export const createOrder = async (pedidos) => {
         try {
             const pedidoCreate = await Pedido.create(
                 {
-                    idLoja: 1,
+                    idLoja: parseInt((pedido.CLIENTE).match(/\d+/)[0]),
                     idFornecedor: parseInt(process.env.ID_SUPPLIER),
                     idTipoFretePedido: 0,
                     idTipopedido: 0,
@@ -59,7 +59,7 @@ export const createOrder = async (pedidos) => {
 
                 await PedidoItem.create(
                     {
-                        id_loja: 1, 
+                        id_loja: pedidoCreate.idLoja, 
                         id_pedido: pedidoCreate.id, 
                         id_produto: produto.id_produto, 
                         quantidade: produto.QTDPEDIDA, 
@@ -100,7 +100,7 @@ export const getProductSupplier = async () => {
     const produtos = await ProdutoFornecedor.findAll({
       attributes: ['id', 'id_produto', 'codigoexterno'],
       where: {
-        id_fornecedor: 1382
+        id_fornecedor: process.env.ID_SUPPLIER
       }      
     })
 

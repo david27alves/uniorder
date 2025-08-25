@@ -4,6 +4,7 @@ import { Sequelize } from 'sequelize'
 const sequelize = new Sequelize({
     host: process.env.DB_HOST,
     database: process.env.DB_DATABASE,
+    port: process.env.DB_PORT,
     username: process.env.DB_USER ? process.env.DB_USER : 'postgres',
     password: process.env.DB_PASS ? process.env.DB_PASS : 'postgres',
     dialect: process.env.DB_DIALECT,
