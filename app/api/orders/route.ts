@@ -1,10 +1,9 @@
 import { addProductIdToOrders } from "@/utils/utils";
 import { checkProductSupplier, createOrder, getProductSupplier } from "@/controllers/orders";
-import { OrderData, ProductOrder } from "@/types/types";
+import { OrderData } from "@/types/types";
 
-// Rota para o método GET
 export async function GET() {
-  // Lógica para buscar usuários
+
   const version = [{ version: "1.0.0" }]
 
   return new Response(JSON.stringify(version), {
@@ -13,8 +12,6 @@ export async function GET() {
   });
 }
 
-
-// Rota para o método POST
 export async function POST(request: Request) {
 
   const orders: OrderData[] = await request.json() 
